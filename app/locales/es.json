@@ -1,0 +1,30 @@
+{
+    "sign_in" : {
+        "current_address": "USAR MI UBICACIÓN ACTUAL",
+        "new_address": "INGRESAR DIRECCIÓN DE ENTREGA"
+    },
+    "drawer": {
+        "home": "Inicio",
+        "profile": "Mi Perfil",
+        "favorites": "Mis Favoritos",
+        "contact": "Contáctanos",
+        "tyc": "Términos y Condiciones",
+        "update_password": "Cambiar contraseña",
+        "logout": "Cerrar Sesión"
+    },
+    "header": {
+        "hello": "Hola, {{name}}"
+    },
+    "products_page":{
+        "label": "Productos"
+    },
+    "shopping_cart_page":{
+        "label": "Mi carrito"
+    },
+    "orders_page":{
+        "label": "Mis órdenes"
+    },
+    "my_account_page":{
+        "label": "Mi cuenta"
+    }
+}
