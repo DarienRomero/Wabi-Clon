@@ -1,5 +1,5 @@
 import React from 'react'
-import {Text, Platform} from 'react-native';
+import {Text, Platform, Image} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import {ProductsPage} from './ProductsPage';
@@ -7,6 +7,9 @@ import {ShoppingCartPage} from './ShoppingCartPage';
 import {OrdersPage} from './OrdersPage';
 import {MyAccountPage} from './MyAccountPage';
 import i18n from '../config/i18n';
+import { authenticatedHomeStack } from '../config/navigation';
+import { findLastIndex } from 'lodash';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +30,7 @@ export const MainPage = (props) => {
             screenOptions={{ gestureEnabled: false }}
             tabBarOptions={{
                 activeTintColor: '#e91e63',
-                showLabel: true,
+                showLabel: false,
                 activeBackgroundColor: "#fff",
                 inactiveBackgroundColor: "#fff",
                 // color:"#F5F5F5",
@@ -38,87 +41,44 @@ export const MainPage = (props) => {
                 } */
             }}
         >
-            <Tab.Screen name={"ProductsPage"} options={({ navigation, route }) => {
+            <Tab.Screen name={authenticatedHomeStack.products} options={({ navigation, route }) => {
                 return {
-                    // tabBarVisible: isTabBarVisible(!_.isNil(route) ? route : null),
-                    tabBarLabel: ({ focused }) => (
-                        focused ?
-                            <Text style={{
-                                color: "#0B52CC", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", fontFamily: "roboto-medium", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('products_page.label')}
-                            </Text> :
-                            <Text style={{
-                                color: "#A8B2BE", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('products_page.label')}
-                            </Text>
-                    ),
-                    /* tabBarIcon: (props) => {
+                    tabBarIcon: (props) => {
                         return (props.focused ?
-                            <Image resizeMode={"contain"} style={{ width: 19, height: 19, }} source={require("@images/common/ico_campaign_selected.png")} /> :
-                            <Image style={{ width: 19, height: 19, }} source={require("@images/common/ico_campaign.png")} />
+                            <Image resizeMode={"contain"} style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/online-store-active.png")} /> :
+                            <Image style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/online-store.png")} />
                         )
-                    } */
+                    }
                 }
             }} component={ProductsPage} />
-            <Tab.Screen name={"ShoppingCartPage"} options={({ navigation, route }) => {
+            <Tab.Screen name={authenticatedHomeStack.shopping} options={({ navigation, route }) => {
                 return {
-                    tabBarLabel: ({ focused }) => (
-                        focused ?
-                            <Text style={{
-                                color: "#0B52CC", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", fontFamily: "roboto-medium", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('shopping_cart_page.label')}
-                            </Text> :
-                            <Text style={{
-                                color: "#A8B2BE", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('shopping_cart_page.label')}
-                            </Text>
-                    ),
+                    tabBarIcon: (props) => {
+                        return (props.focused ?
+                            <Image resizeMode={"contain"} style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/shopping-cart-active.png")} /> :
+                            <Image style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/shopping-cart.png")} />
+                        )
+                    }
                 }
             }} component={ShoppingCartPage} />
-            <Tab.Screen name={"OrdersPage"} options={({ navigation, route }) => {
+            <Tab.Screen name={authenticatedHomeStack.orders} options={({ navigation, route }) => {
                 return {
-                    tabBarLabel: ({ focused }) => (
-                        focused ?
-                            <Text style={{
-                                color: "#0B52CC", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", fontFamily: "roboto-medium", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('orders_page.label')}
-                            </Text> :
-                            <Text style={{
-                                color: "#A8B2BE", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('orders_page.label')}
-                            </Text>
-                    ),
+                    tabBarIcon: (props) => {
+                        return (props.focused ?
+                            <Image resizeMode={"contain"} style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/shopping-bag-active.png")} /> :
+                            <Image style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/shopping-bag.png")} />
+                        )
+                    }
                 }
             }} component={OrdersPage} />
-            <Tab.Screen name={"MyAccountPage"} options={({ navigation, route }) => {
+            <Tab.Screen name={authenticatedHomeStack.profile} options={({ navigation, route }) => {
                 return {
-                    tabBarLabel: ({ focused }) => (
-                        focused ?
-                            <Text style={{
-                                color: "#0B52CC", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", fontFamily: "roboto-medium", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('my_account_page.label')}
-                            </Text> :
-                            <Text style={{
-                                color: "#A8B2BE", fontSize: 12, lineHeight: 14, marginLeft: (Platform.isPad) ? 20 : 0,
-                                textAlign: "center", marginBottom: (Platform.isPad) ? 0 : 5
-                            }}>
-                                {i18n.t('my_account_page.label')}
-                            </Text>
-                    ),
+                    tabBarIcon: (props) => {
+                        return (props.focused ?
+                            <Image resizeMode={"contain"} style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/user-active.png")} /> :
+                            <Image style={{ width: 20, height: 20, }} source={require("../assets/images/bottom_navigation/user.png")} />
+                        )
+                    }
                 }
             }} component={MyAccountPage} />
         </Tab.Navigator>

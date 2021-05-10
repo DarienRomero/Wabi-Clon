@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
-import { Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableNativeFeedback, View } from 'react-native'
+import { Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableNativeFeedback, View, Dimensions } from 'react-native'
 import {useDispatch} from 'react-redux';
 import { startLoginEmailPassword } from '../redux/actions/auth';
+
+const screenWidth = Dimensions.get('window').width;
 
 export const SignInPage = ({navigation}) => {
     const dispatch = useDispatch(); 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const handleOnPressed = async () => {
-        // dispatch(startLoginEmailPassword(email, password));
-        /* const user = await login(email, password);
-        if(!user) return; */
+        dispatch(startLoginEmailPassword(email, password));
+        /* const user = await loginUser(email, password);
+        console.log(user); */
+        // if(!user) return;
         navigation.replace('MainPage')
     }
     return (
         <SafeAreaView style={styles.container}>
-            <Image source={require('../assets/images/icon.png')} style={styles.iconImage}/>
+            <Image source={require('../assets/images/app_icon.png')} style={{width: screenWidth * 0.4, height: screenWidth * 0.4,borderRadius: 20, marginTop: 20}}/>
             <Text style={styles.title}>Welcome Back!</Text>
             <Text style={styles.subtitle}>Login to your account</Text>
             <TextInput
@@ -46,7 +49,7 @@ export const SignInPage = ({navigation}) => {
                 <TouchableHighlight 
                     underlayColor="#66ffff"
                     onPress = { () => navigation.navigate('SignUpPage') }>
-                    <Text style={{color: '#0693ef',}}>Sign Up here</Text>
+                    <Text style={{color: 'red',}}>Sign Up here</Text>
                 </TouchableHighlight>
             </View>
         </SafeAreaView>
@@ -75,10 +78,10 @@ const styles = StyleSheet.create({
     inputEmail:{
         width: '80%',
         height: 50,
-        borderColor: '#0693ef',
+        borderColor: 'red',
         borderWidth: 1,
         borderRadius: 50,
-        color: '#6a6e6b',
+        color: '#6b6b6b',
         textAlignVertical: 'center',
         paddingLeft: '4%',
         marginBottom: '5%'
@@ -86,7 +89,7 @@ const styles = StyleSheet.create({
     submit: {
         width: '80%',
         marginTop: '5%',
-        backgroundColor: '#0693ef',
+        backgroundColor: 'red',
         height: '6%',
         borderRadius: 50,
         marginBottom: '20%',

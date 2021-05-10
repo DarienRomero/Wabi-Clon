@@ -22,11 +22,10 @@ export const loginUser = async (email, password) => {
         };
     
         const resp = await fetch(baseURL + loginEndpoint, requestOptions);
-        console.log(resp);
         const body = await resp.text();
         const user = JSON.parse(body);
         if(resp.status === 200){
-            return user;
+            return user.usuario;
         }else{
             return null;
         }

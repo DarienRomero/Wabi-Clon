@@ -5,20 +5,20 @@ export const startLoginEmailPassword = (email, password) => {
     return (dispatch) => {
         // const user = await login(email, password);
         loginUser(email, password).then((user) => {
-            console.log(user);
             dispatch(
-                login(user.email, user.nombres)
+                login(user.email, user.nombres, user.photoUrl)
             )
         })
     }
 }
 
-export const login = (email, nombres) => {
+export const login = (email, nombres, photoUrl) => {
     return {
         type: types.login,
         payload: {
             email,
-            nombres
+            nombres,
+            photoUrl
         }
     }
 }
