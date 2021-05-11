@@ -6,36 +6,28 @@ import { SignInPage } from '../screens/SignInPage';
 import { OnboardingPage } from '../screens/OnboardingPage';
 import { MainDrawer } from '../routes/drawer';
 import { initialStack } from '../config/navigation';
+import { useSelector } from 'react-redux';
+import {NotAuthenticatedRoutes} from './NotAuthenticatedRoutes';
+import {AuthenticatedRoutes} from './AuthenticatedRoutes';
+import NavigationService from '../util/navigation';
 
 const Stack = createStackNavigator();
 
 export const ActiveRoutes = () => {
+    const logged = useSelector(state => {
+        return state.auth.isLogged;
+    });
+    console.log("Cambio de pantalla");
+    console.log(logged);
     return (
-        <NavigationContainer>
-            <Stack.Navigator
-                // initialRouteName="Pagina2Screen"
-                screenOptions={{
-                    headerShown: false,
-                    cardStyle:{
-                        backgroundColor: 'white'
-                    }
-                }}
-            >
-                <Stack.Screen name = {initialStack.onboarding} component={OnboardingPage}/>
-                <Stack.Screen name = {initialStack.sign_in} component={SignInPage}/>
-                <Stack.Screen name= {initialStack.main}
-                    options={({ navigation, route }) => {
-                        // console.log('route123 :>> ', route);
-                        // navigation.setParams({profile:props.profile})
-                        return {
-                            headerShown: false
-                        }
-                    }}>
-                    {props => <MainDrawer  {...props} />}
-                </Stack.Screen>
-                {/* <Stack.Screen name = "SignUpPage" component={SignUpPage}/>
-                <Stack.Screen name = "UserDetail" component={UserDetail}/> */}
-            </Stack.Navigator>    
+        <NavigationContainer ref={navigatorRef => {
+            if (navigatorRef)
+                NavigationService.setTopLevelNavigator(navigatorRef);
+        }}>
+            {logged ?
+                <AuthenticatedRoutes /> :
+                <NotAuthenticatedRoutes />
+            }  
         </NavigationContainer>
         
     );

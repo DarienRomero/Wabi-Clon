@@ -6,19 +6,28 @@ export const startLoginEmailPassword = (email, password) => {
         // const user = await login(email, password);
         loginUser(email, password).then((user) => {
             dispatch(
-                login(user.email, user.nombres, user.photoUrl)
+                login(user.email, user.nombres, user.photoUrl, true)
             )
         })
     }
 }
 
-export const login = (email, nombres, photoUrl) => {
+export const startSignOut = () => {
+    return (dispatch) => {
+        dispatch({
+            type: types.logout,
+        });
+    }
+}
+
+export const login = (email, nombres, photoUrl, isLogged) => {
     return {
         type: types.login,
         payload: {
             email,
             nombres,
-            photoUrl
+            photoUrl,
+            isLogged
         }
     }
 }

@@ -3,6 +3,9 @@ import { HEIGHT_NAVIGATION, PADDING_TOP_DRAWER } from '../../config/constants';
 import i18n from '../../config/i18n';
 import {Dimensions, View, Text, StyleSheet} from 'react-native';
 import {Item} from './item';
+import { useSelector } from 'react-redux';
+import {useDispatch} from 'react-redux';
+import { startSignOut } from '../../redux/actions/auth';
 import {
     DrawerContentScrollView,
     DrawerItemList,
@@ -12,18 +15,20 @@ import {
 const screenWidth = Dimensions.get('window').width;
 
 export const CustomDrawerContent = (props) => {
-    let userName = `Javier`
-    let email = `javier@evolbit.net`;
+    const user = useSelector(state => {
+        return state.auth;
+    });
+    const dispatch = useDispatch(); 
 
     return (
         <DrawerContentScrollView contentContainerStyle={{ flex: 1 }} {...props}>
             <View style={{
                 width: screenWidth * 0.6,
-                backgroundColor:"#0B52CC",
+                backgroundColor:"red",
                 paddingTop: HEIGHT_NAVIGATION + PADDING_TOP_DRAWER,
             }}>
-            <Text numberOfLines={1} style={[styles.title]}> {i18n.t('header.hello', { name:userName })}</Text>
-            <Text numberOfLines={1} style={[styles.subtitle]}> {email}</Text>
+            <Text numberOfLines={1} style={[styles.title]}> {i18n.t('header.hello', { name:user.nombres })}</Text>
+            <Text numberOfLines={1} style={[styles.subtitle]}> {user.email}</Text>
             </View>
             <View style={{width: screenWidth * 0.6, flex:1, backgroundColor:"#F4F5FA"}}>
                 <Item icon={require('../../assets/images/drawer/ico_home.png')} name={i18n.t("drawer.home")} />
@@ -32,7 +37,9 @@ export const CustomDrawerContent = (props) => {
                 <Item icon={require('../../assets/images/drawer/ico_email.png')} name={i18n.t("drawer.contact")} />
                 <Item icon={require('../../assets/images/drawer/ico_tyc.png')} name={i18n.t("drawer.tyc")} />
                 <Item icon={require('../../assets/images/drawer/ico_change_password.png')} name={i18n.t("drawer.update_password")} />
-                <Item icon={require('../../assets/images/drawer/ico_logout.png')} name={i18n.t("drawer.logout")} />
+                <Item icon={require('../../assets/images/drawer/ico_logout.png')} name={i18n.t("drawer.logout")} onPress={() => {
+                    dispatch(startSignOut());
+                }}/>
             </View>
         </DrawerContentScrollView>
     );

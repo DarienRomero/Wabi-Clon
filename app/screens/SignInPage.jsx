@@ -14,7 +14,7 @@ export const SignInPage = ({navigation}) => {
         /* const user = await loginUser(email, password);
         console.log(user); */
         // if(!user) return;
-        navigation.replace('MainPage')
+        // navigation.replace('MainPage')
     }
     return (
         <SafeAreaView style={styles.container}>

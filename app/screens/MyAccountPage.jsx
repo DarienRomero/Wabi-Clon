@@ -1,15 +1,18 @@
 import React from 'react'
 import {View, Text, Image, Dimensions, StyleSheet, TouchableNativeFeedback} from 'react-native';
 import { useSelector } from 'react-redux';
+import {useDispatch} from 'react-redux';
+import { startSignOut } from '../redux/actions/auth';
 
 const screenWidth = Dimensions.get('window').width;
 
 export const MyAccountPage = () => {
+    const dispatch = useDispatch(); 
     const user = useSelector(state => {
         return state.auth;
     });
     const handleOnPressed = () => {
-
+        dispatch(startSignOut());
     }
     return (
         <View style= {styles.container}>
@@ -30,7 +33,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, 
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white'
     },
     profilePhoto: {
         borderRadius: 50,
