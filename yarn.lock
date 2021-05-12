@@ -1969,6 +1969,11 @@
   dependencies:
     "event-target-shim" "^5.0.0"
 
+"abs-svg-path@^0.1.1":
+  "integrity" "sha1-32Acjo0roQ1KdtYl4japo5wnI78="
+  "resolved" "https://registry.npmjs.org/abs-svg-path/-/abs-svg-path-0.1.1.tgz"
+  "version" "0.1.1"
+
 "absolute-path@^0.0.0":
   "integrity" "sha1-p4di+9rftSl76ZsV01p4Wy8JW/c="
   "resolved" "https://registry.yarnpkg.com/absolute-path/-/absolute-path-0.0.0.tgz"
@@ -3227,10 +3232,25 @@
   dependencies:
     "fontfaceobserver" "^2.1.0"
 
+"expo-image-picker@~10.1.4":
+  "integrity" "sha512-4U16RteJNWP5mC198fOIK/BgI3ZXRjqwslFK/gUrKiK5QKECXdvPCHrPwbXlo1DRQNhoPvWd+Cnhod0RsDnMkQ=="
+  "resolved" "https://registry.npmjs.org/expo-image-picker/-/expo-image-picker-10.1.4.tgz"
+  "version" "10.1.4"
+  dependencies:
+    "@expo/config-plugins" "^1.0.18"
+    "expo-permissions" "~12.0.1"
+    "unimodules-permissions-interface" "~6.1.0"
+    "uuid" "7.0.2"
+
 "expo-keep-awake@~9.1.2":
   "integrity" "sha512-CCuEOQUNLYtMA0rt0sQ9u5LlIMH7lDJG7dImoorfKMsP95yHXy8dl3oCdtaz2zbsPgggVYeom9gE+gQu+Ki4rQ=="
   "resolved" "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-9.1.2.tgz"
   "version" "9.1.2"
+
+"expo-linear-gradient@^8.0.0":
+  "integrity" "sha512-f9JOXaIl0MR8RBYRIud5UAsEi52oz81XhQs73VUpujemHjOyHmrZa6dqwf399YOwI/WBwbpcINcUIw/mCYE1mA=="
+  "resolved" "https://registry.npmjs.org/expo-linear-gradient/-/expo-linear-gradient-8.4.0.tgz"
+  "version" "8.4.0"
 
 "expo-localization@~10.1.0":
   "integrity" "sha512-covyQ1YJneUBvjkNp0p8Lp7ej5Plz1OpJiwA2P6O3hZ4yVVqNDOOAb2WADLARPtxNJrDdntSozgI+JSz/yQxmQ=="
@@ -3238,6 +3258,11 @@
   "version" "10.1.0"
   dependencies:
     "rtl-detect" "^1.0.2"
+
+"expo-permissions@~12.0.1":
+  "integrity" "sha512-TtypNPPLG4SdVEKBlrArLLZIyhlhE+3B4dhz2HaY1Mve2rcvKE0C7z/e1WoUVU8+LgcdKoNGwg/wRVeCkxeEhg=="
+  "resolved" "https://registry.npmjs.org/expo-permissions/-/expo-permissions-12.0.1.tgz"
+  "version" "12.0.1"
 
 "expo-splash-screen@~0.10.2":
   "integrity" "sha512-ngelW7g5yFqk3LWbyLDDxi3LYXEfgGFCJddL/Q8S/C1pMUc5foW2j9i/q+akK8i5mjYtSx3+Bk/qbyX92QIF/w=="
@@ -5004,6 +5029,13 @@
   dependencies:
     "remove-trailing-separator" "^1.0.1"
 
+"normalize-svg-path@^1.0.1":
+  "integrity" "sha512-r9KHKG2UUeB5LoTouwDzBy2VxXlHsiM6fyLQvnJa0S5hrhzqElH/CH7TUGhT1fVvIYBIKf3OpY4YJ4CK+iaqHg=="
+  "resolved" "https://registry.npmjs.org/normalize-svg-path/-/normalize-svg-path-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "svg-arc-to-cubic-bezier" "^3.0.0"
+
 "npm-run-path@^2.0.0":
   "integrity" "sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8="
   "resolved" "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz"
@@ -5253,6 +5285,11 @@
   "version" "2.1.0"
   dependencies:
     "pngjs" "^3.3.0"
+
+"parse-svg-path@^0.1.2":
+  "integrity" "sha1-en7A0esG+lMlx9PgCbhZoJtdSes="
+  "resolved" "https://registry.npmjs.org/parse-svg-path/-/parse-svg-path-0.1.2.tgz"
+  "version" "0.1.2"
 
 "parseurl@~1.3.3":
   "integrity" "sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ=="
@@ -5549,7 +5586,7 @@
     "lodash" "^4.17.15"
     "prop-types" "^15.7.2"
 
-"react-native-reanimated@>= 1.0.0", "react-native-reanimated@~2.1.0":
+"react-native-reanimated@*", "react-native-reanimated@>= 1.0.0", "react-native-reanimated@~2.1.0":
   "integrity" "sha512-tlPvvcdf+X7HGQ7g/7npBFhwMznfdk7MHUc9gUB/kp2abSscXNe/kOVKlrNEOO4DS11rNOXc+llFxVFMuNk0zA=="
   "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-2.1.0.tgz"
   "version" "2.1.0"
@@ -5558,6 +5595,22 @@
     "fbjs" "^3.0.0"
     "mockdate" "^3.0.2"
     "string-hash-64" "^1.0.3"
+
+"react-native-reanimated@1.9.0":
+  "integrity" "sha512-Aj+spgIHRiVv7ezGADxnSH1EoKrQRD2+XaSiGY0MiB/pvRNNrZPSJ+3NVpvLwWf9lZMOP7dwqqyJIzoZgBDt8w=="
+  "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-1.9.0.tgz"
+  "version" "1.9.0"
+  dependencies:
+    "fbjs" "^1.0.0"
+
+"react-native-redash@^14.1.1":
+  "integrity" "sha512-/1R9UxXv3ffKcrbxolqa2B247Cgd3ikyEm2q1VlBng77Es6PAD4LAOXQ83pBavvwNfOsbhF3ebkbMpJcLaVt3Q=="
+  "resolved" "https://registry.npmjs.org/react-native-redash/-/react-native-redash-14.2.4.tgz"
+  "version" "14.2.4"
+  dependencies:
+    "abs-svg-path" "^0.1.1"
+    "normalize-svg-path" "^1.0.1"
+    "parse-svg-path" "^0.1.2"
 
 "react-native-safe-area-context@^3.1.9", "react-native-safe-area-context@>= 0.6.0", "react-native-safe-area-context@3.2.0":
   "integrity" "sha512-k2Nty4PwSnrg9HwrYeeE+EYqViYJoOFwEy9LxL5RIRfoqxAq/uQXNGwpUg2/u4gnKpBbEPa9eRh15KKMe/VHkA=="
@@ -5573,6 +5626,15 @@
   "integrity" "sha512-mKOfBLIBFBcs9br1rlZDvxD5+mAl8Gfr5CounwJtxI6Z82rGrMO+Kgl9EIg3RMVf3G855a85YVqHJL2f5EDRlw=="
   "resolved" "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.3.1.tgz"
   "version" "0.3.1"
+
+"react-native-skeleton-content@^1.0.20":
+  "integrity" "sha512-81eduJZM2ZrkcA1QGReeXdZV3mgjEVUHEEVPZWMAI7s6LvosBVHSZYlyJEmtnqzvrCexxkSiq//rxficAcE+IA=="
+  "resolved" "https://registry.npmjs.org/react-native-skeleton-content/-/react-native-skeleton-content-1.0.20.tgz"
+  "version" "1.0.20"
+  dependencies:
+    "expo-linear-gradient" "^8.0.0"
+    "react-native-reanimated" "1.9.0"
+    "react-native-redash" "^14.1.1"
 
 "react-native-vector-icons@>7.0.0":
   "integrity" "sha512-sHIdBB6Y0dHaot2fMXgy5J/hhCn5YuyN7SKDNFgPzL8KA1oF2/v7mgYMavnK7LIIs2dJoGnDANKf61dsU+TZlg=="
@@ -6340,6 +6402,11 @@
   dependencies:
     "has-flag" "^4.0.0"
 
+"svg-arc-to-cubic-bezier@^3.0.0":
+  "integrity" "sha512-djbJ/vZKZO+gPoSDThGNpKDO+o+bAeA4XQKovvkNCqnIS2t+S4qnLAGQhyyrulhCFRl1WWzAp0wUDV8PpTVU3g=="
+  "resolved" "https://registry.npmjs.org/svg-arc-to-cubic-bezier/-/svg-arc-to-cubic-bezier-3.2.0.tgz"
+  "version" "3.2.0"
+
 "temp-dir@^1.0.0":
   "integrity" "sha1-CnwOom06Oa+n4OvqnB/AvE2qAR0="
   "resolved" "https://registry.yarnpkg.com/temp-dir/-/temp-dir-1.0.0.tgz"
@@ -6508,6 +6575,11 @@
   "resolved" "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.1.0.tgz"
   "version" "1.1.0"
 
+"unimodules-permissions-interface@~6.1.0":
+  "integrity" "sha512-jeJx/y+Vn/Cp1/4su5XJ06UBul83MpXkYEqIOAb2jwaikhmj6tNwko7HpKy9OhfGfrhddCzwtedlro8xxZUk9A=="
+  "resolved" "https://registry.npmjs.org/unimodules-permissions-interface/-/unimodules-permissions-interface-6.1.0.tgz"
+  "version" "6.1.0"
+
 "union-value@^1.0.0":
   "integrity" "sha512-tJfXmxMeWYnczCVs7XAEvIV7ieppALdyepWMkHkwciRpZraG/xwT+s2JN8+pr1+8jCRf80FFzvr+MpQeeoF4Xg=="
   "resolved" "https://registry.yarnpkg.com/union-value/-/union-value-1.0.1.tgz"
@@ -6604,6 +6676,11 @@
   "integrity" "sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg=="
   "resolved" "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz"
   "version" "7.0.3"
+
+"uuid@7.0.2":
+  "integrity" "sha512-vy9V/+pKG+5ZTYKf+VcphF5Oc6EFiu3W8Nv3P3zIh0EqVI80ZxOzuPfe9EHjkFNvf8+xuTHVeei4Drydlx4zjw=="
+  "resolved" "https://registry.npmjs.org/uuid/-/uuid-7.0.2.tgz"
+  "version" "7.0.2"
 
 "vary@~1.1.2":
   "integrity" "sha1-IpnwLG3tMNSllhsLn3RSShj2NPw="

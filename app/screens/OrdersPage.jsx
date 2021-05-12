@@ -1,6 +1,6 @@
 import React from 'react'
 import {View, Text, Image, StyleSheet, TouchableNativeFeedback} from 'react-native';
-
+import {SkeletonContent} from 'react-native-skeleton-content';
 export const OrdersPage = () => {
     return (
         <View style= {styles.container}>
@@ -19,7 +19,15 @@ export const OrdersPage = () => {
                 <View style= {styles.toProductsButton}>
                     <Text style={{color: 'white', fontWeight: 'normal', fontSize: 16}}>HACER PEDIDO</Text>
                 </View>
-            </TouchableNativeFeedback>            
+            </TouchableNativeFeedback>
+            {/* <SkeletonContent
+                containerStyle={{ flex: 1, width: 300 }}
+                isLoading={false}
+                layout={[
+                    { key: 'someId', width: 220, height: 20, marginBottom: 6 },
+                    { key: 'someOtherId', width: 180, height: 20, marginBottom: 6 }
+                ]}>
+            </SkeletonContent>  */}           
         </View>
     )
 }

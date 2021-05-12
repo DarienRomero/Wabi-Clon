@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.darienromero.expo-redux-hooks"
     },
     "android": {
       "adaptiveIcon": {
