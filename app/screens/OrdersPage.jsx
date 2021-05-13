@@ -1,6 +1,11 @@
 import React from 'react'
-import {View, Text, Image, StyleSheet, TouchableNativeFeedback} from 'react-native';
-import {SkeletonContent} from 'react-native-skeleton-content';
+import {View, Text, Image, StyleSheet, TouchableNativeFeedback, Dimensions} from 'react-native';
+import SkeletonContent from 'react-native-skeleton-content';
+
+const screenWidth = Dimensions.get('window').width;
+
+
+
 export const OrdersPage = () => {
     return (
         <View style= {styles.container}>
@@ -20,14 +25,15 @@ export const OrdersPage = () => {
                     <Text style={{color: 'white', fontWeight: 'normal', fontSize: 16}}>HACER PEDIDO</Text>
                 </View>
             </TouchableNativeFeedback>
-            {/* <SkeletonContent
-                containerStyle={{ flex: 1, width: 300 }}
-                isLoading={false}
+            <SkeletonContent
+                // containerStyle={{ flexDirection: 'row' }}
+                isLoading={true}
                 layout={[
-                    { key: 'someId', width: 220, height: 20, marginBottom: 6 },
-                    { key: 'someOtherId', width: 180, height: 20, marginBottom: 6 }
+                    { key: 'someIdxD', width: screenWidth * 0.5, height: screenWidth * 0.5, marginBottom: 10, borderRadius: screenWidth * 0.5 },
+                    { key: 'someId', width: screenWidth * 0.8, height: 30, marginBottom: 10 },
+                    { key: 'someOtherId', width: screenWidth * 0.8, height: 30, marginBottom: 10 }
                 ]}>
-            </SkeletonContent>  */}           
+            </SkeletonContent>         
         </View>
     )
 }

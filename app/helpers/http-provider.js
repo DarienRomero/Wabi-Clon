@@ -3,6 +3,9 @@ const loginEndpoint = "api/auth/login";
 const getUserEndpoint = "api/usuarios";
 const editUserEndpoint = "api/usuarios/edit";
 const getUserByIdEndpoint = "api/usuarios/detail";
+const googleMapKey = "AIzaSyDDSu8NhYMBVHBetXvCtTFfMg23zHmxRQo";
+
+
 
 export const loginUser = async (email, password) => {
     try{
@@ -124,5 +127,19 @@ export const createUser = async (nombres, email, password) => {
     }catch(e){
         return null;
     }
-    
+}
+export const searchAddresses = async(query) => {
+    try{
+        var requestOptions = {
+            method: 'POST',
+            redirect: 'follow'
+          };
+        
+        let response = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?key=${googleMapKey}&language=es-419&region=pe&query=${encodeURI(query)}`, requestOptions);
+        let result = await response.text();
+        const {results} = JSON.parse(result);
+        return results;
+    }catch(e){
+        return [];
+    }
 }

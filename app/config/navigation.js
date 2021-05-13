@@ -7,5 +7,6 @@ export const authenticatedHomeStack = {
 export const initialStack = {
     onboarding: 'OnboardingPage',
     sign_in: 'SignInPage',
-    main: 'MainPage'
+    main: 'MainPage',
+    address: 'SelectAddressPage'
 }

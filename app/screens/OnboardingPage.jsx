@@ -8,8 +8,7 @@ export const OnboardingPage = ({navigation}) => {
         navigation.replace('SignInPage')
     }
     const handleNewAddress = () => {
-        i18n.locale = "en";
-        console.log("Cambio de idioma");
+        navigation.push('SelectAddressPage')
     }
     return (
         <View style={styles.container}>
