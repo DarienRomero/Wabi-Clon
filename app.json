@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/images/app_icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.darienromero.exporeduxhooks"
     },
     "web": {
       "favicon": "./app/assets/images/app_icon.png"
