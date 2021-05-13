@@ -2,17 +2,27 @@ import React from 'react'
 import {SafeAreaView, Text, ScrollView, Image, View, StyleSheet, Dimensions} from 'react-native';
 import {CategoriesGrid} from '../components/ProductsPage/CategoriesGrid';
 import {BrandsScroll} from '../components/ProductsPage/BrandsScroll';
+import { useSelector } from 'react-redux';
+import {productsStack} from '../config/navigation';
 
 const screenWidth = Dimensions.get('window').width;
 
-export const ProductsPage = () => {
+export const ProductsPage = ({navigation}) => {
+    const address = useSelector(state => {
+        return state.address;
+    });
+    console.log(address);
     return (
         <SafeAreaView>
             <ScrollView>
                 <View style= {styles.header}>
-                    <Text style= {styles.headerText}>Calle Putumayo 217</Text>
+                    <Text style= {styles.headerText}>{address.name}</Text>
                 </View>
-                <BrandsScroll />
+                <BrandsScroll 
+                    onSelection = {(brandSelected) =>{
+                        navigation.push(productsStack.brands, brandSelected);
+                    }}
+                />
                 <CategoriesGrid />            
             </ScrollView>
         </SafeAreaView>
@@ -22,7 +32,7 @@ export const ProductsPage = () => {
 const styles = StyleSheet.create({
     header: {
         backgroundColor: 'red',
-        height: '20%',
+        height: '15%',
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',

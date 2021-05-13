@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import { SafeAreaView, StyleSheet,View, Text, TextInput, Dimensions, ScrollView, TouchableNativeFeedback } from 'react-native'
 import {searchAddresses} from '../helpers/http-provider';
 import {Icon} from 'react-native-elements';
+import {useDispatch} from 'react-redux';
+import { startSetAddress } from '../redux/actions/address';
 
 const screenWidth = Dimensions.get('window').width;
 
 export const SelectAddressPage = ({navigation}) => {
     const [addressesList, setAddressesList] = useState([]);
     const [addressSearch, setAddressSearch] = useState("")
+    const dispatch = useDispatch(); 
     let timer;
     
     const handleSearchChange = (e) => {
@@ -15,14 +18,13 @@ export const SelectAddressPage = ({navigation}) => {
         if(timer) clearTimeout(timer);
         timer = setTimeout( async () =>{
             const addresses = await searchAddresses(e);
-            console.log(addresses);
             setAddressesList(addresses);
         }, 1000);
     }
     const selectItem = (address) => {
-        console.log(address.geometry.location.lat);
-        console.log(address.geometry.location.lng);
-        console.log(address.name);
+        dispatch(startSetAddress(address.name, address.geometry.location.lat, address.geometry.location.lng));
+        navigation.pop();
+        navigation.push('SignInPage')
     }
     
     return (

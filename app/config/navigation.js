@@ -9,4 +9,9 @@ export const initialStack = {
     sign_in: 'SignInPage',
     main: 'MainPage',
     address: 'SelectAddressPage'
+};
+export const productsStack = {
+    main: 'ProductsPage',
+    categories: 'ProductsCategoriesPage',
+    brands: 'ProductsBrandsPage',
 }

@@ -1,14 +1,12 @@
 import React from 'react'
-import {Text, Platform, Image} from 'react-native';
+import {Image} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import {ProductsPage} from './ProductsPage';
 import {ShoppingCartPage} from './ShoppingCartPage';
 import {OrdersPage} from './OrdersPage';
 import {MyAccountPage} from './MyAccountPage';
-import i18n from '../config/i18n';
 import { authenticatedHomeStack } from '../config/navigation';
-import { findLastIndex } from 'lodash';
+import { ProductsStack } from '../routes/ProductsStack';
 
 
 const Tab = createBottomTabNavigator();
@@ -41,7 +39,7 @@ export const MainPage = (props) => {
                 } */
             }}
         >
-            <Tab.Screen name={authenticatedHomeStack.products} options={({ navigation, route }) => {
+            <Tab.Screen name="ProductsStack" options={({ navigation, route }) => {
                 return {
                     tabBarIcon: (props) => {
                         return (props.focused ?
@@ -50,7 +48,7 @@ export const MainPage = (props) => {
                         )
                     }
                 }
-            }} component={ProductsPage} />
+            }} component={ProductsStack} />
             <Tab.Screen name={authenticatedHomeStack.shopping} options={({ navigation, route }) => {
                 return {
                     tabBarIcon: (props) => {
