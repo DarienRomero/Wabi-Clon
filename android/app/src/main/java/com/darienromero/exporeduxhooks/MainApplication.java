@@ -22,6 +22,11 @@ import expo.modules.constants.ConstantsPackage;
 import expo.modules.permissions.PermissionsPackage;
 import expo.modules.filesystem.FileSystemPackage;
 import expo.modules.updates.UpdatesController;
+import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.links.RNFirebaseLinksPackage;
+import io.invertase.firebase.config.RNFirebaseRemoteConfigPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
 
 import com.facebook.react.bridge.JSIModulePackage;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
@@ -46,6 +51,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
+      packages.add(new ReactNativeFirebaseAppPackage());
+      packages.add(new RNFirebaseMessagingPackage());
+      packages.add(new RNFirebaseLinksPackage());
+      packages.add(new RNFirebaseRemoteConfigPackage());
+      packages.add(new RNFirebaseNotificationsPackage());
       return packages;
     }
 

@@ -18,14 +18,20 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.darienromero.expo-redux-hooks"
+      "bundleIdentifier": "com.darienromero.expo-redux-hooks",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.412650327494-8lr7i6cginagpl3kkocgpok74d65299f"
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/images/app_icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.darienromero.exporeduxhooks"
+      "package": "com.darienromero.exporeduxhooks",
+      "googleServicesFile": "./android/app/google-services.json"
     },
     "web": {
       "favicon": "./app/assets/images/app_icon.png"

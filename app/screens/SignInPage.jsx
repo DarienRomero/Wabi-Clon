@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableNativeFeedback, View, Dimensions } from 'react-native'
+import { Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableHighlight, TouchableNativeFeedback, View, Dimensions, Button } from 'react-native'
 import {useDispatch} from 'react-redux';
 import { startLoginEmailPassword } from '../redux/actions/auth';
+import * as GoogleSignIn from 'expo-google-sign-in';
+
+// import analytics from '@react-native-firebase/analytics'; 
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -11,11 +14,19 @@ export const SignInPage = ({navigation}) => {
     const [password, setPassword] = useState('');
     const handleOnPressed = async () => {
         dispatch(startLoginEmailPassword(email, password));
-        /* const user = await loginUser(email, password);
-        console.log(user); */
-        // if(!user) return;
-        // navigation.replace('MainPage')
     }
+    signInGoogle = async () => {
+        try {
+          await GoogleSignIn.askForPlayServicesAsync();
+          const { type, user } = await GoogleSignIn.signInAsync();
+          console.log(user);
+          if (type === 'success') {
+            this._syncUserWithStateAsync();
+          }
+        } catch ({ message }) {
+          alert('login: Error:' + message);
+        }
+      };
     return (
         <SafeAreaView style={styles.container}>
             <Image source={require('../assets/images/app_icon.png')} style={{width: screenWidth * 0.4, height: screenWidth * 0.4,borderRadius: 20, marginTop: 20}}/>
@@ -52,6 +63,10 @@ export const SignInPage = ({navigation}) => {
                     <Text style={{color: 'red',}}>Sign Up here</Text>
                 </TouchableHighlight>
             </View>
+            <Button
+                title="Google Sign-In"
+                onPress={() => signInGoogle()}
+            />
         </SafeAreaView>
     )
 }

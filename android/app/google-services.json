@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "412650327494",
+    "project_id": "wabi-rn",
+    "storage_bucket": "wabi-rn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412650327494:android:f6081437eec9d661afb6c7",
+        "android_client_info": {
+          "package_name": "com.darienromero.exporeduxhooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412650327494-8lr7i6cginagpl3kkocgpok74d65299f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.darienromero.exporeduxhooks",
+            "certificate_hash": "08e7a28b81feb90fd0bf0c9da9998f778817025f"
+          }
+        },
+        {
+          "client_id": "412650327494-5shlofj12rgu31ikgnkl7p9gbqkhvu3h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDxTsP8MMhBPxoSqML7i_wrlV6mv9Bh-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "412650327494-5shlofj12rgu31ikgnkl7p9gbqkhvu3h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
